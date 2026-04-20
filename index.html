@@ -5,10 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Discover Bangladesh | Local Tours & Guides</title>
     <style>
-        /* CSS Styling */
         :root {
-            --primary-color: #006a4e; /* Bangladesh Green */
-            --secondary-color: #f42a41; /* Bangladesh Red */
+            --primary-color: #006a4e;
+            --secondary-color: #f42a41;
             --light-bg: #f4f8f6;
             --text-color: #333;
         }
@@ -25,7 +24,6 @@
             line-height: 1.6;
         }
 
-        /* Navigation */
         nav {
             background-color: var(--primary-color);
             color: white;
@@ -38,35 +36,13 @@
             z-index: 100;
         }
 
-        nav h1 {
-            font-size: 1.5rem;
-            color: white;
-        }
+        nav h1 { font-size: 1.5rem; color: white; }
+        nav span { color: var(--secondary-color); }
+        nav ul { list-style: none; display: flex; gap: 20px; }
+        nav a { color: white; text-decoration: none; font-weight: bold; transition: color 0.3s; }
+        nav a:hover { color: var(--secondary-color); }
 
-        nav span {
-            color: var(--secondary-color);
-        }
-
-        nav ul {
-            list-style: none;
-            display: flex;
-            gap: 20px;
-        }
-
-        nav a {
-            color: white;
-            text-decoration: none;
-            font-weight: bold;
-            transition: color 0.3s;
-        }
-
-        nav a:hover {
-            color: var(--secondary-color);
-        }
-
-        /* Hero Section */
         header {
-            /* Using a scenic river/boat image as a placeholder for riverine Bangladesh */
             background: linear-gradient(rgba(0, 70, 50, 0.7), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1600298882283-40b4dcb8b211?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover;
             height: 80vh;
             display: flex;
@@ -78,16 +54,8 @@
             padding: 0 20px;
         }
 
-        header h2 {
-            font-size: 3.5rem;
-            margin-bottom: 10px;
-        }
-
-        header p {
-            font-size: 1.2rem;
-            margin-bottom: 20px;
-            max-width: 700px;
-        }
+        header h2 { font-size: 3.5rem; margin-bottom: 10px; }
+        header p { font-size: 1.2rem; margin-bottom: 20px; max-width: 700px; }
 
         .btn {
             background-color: var(--secondary-color);
@@ -102,11 +70,8 @@
             transition: background 0.3s;
         }
 
-        .btn:hover {
-            background-color: #d01c31;
-        }
+        .btn:hover { background-color: #d01c31; }
 
-        /* Tours & Guides Section */
         .section-title {
             text-align: center;
             margin: 50px 0 20px;
@@ -132,31 +97,11 @@
             transition: transform 0.3s;
         }
 
-        .card:hover {
-            transform: translateY(-8px);
-        }
-
-        .card img {
-            width: 100%;
-            height: 220px;
-            object-fit: cover;
-        }
-
-        .card-content {
-            padding: 20px;
-        }
-
-        .card-content h3 {
-            margin-bottom: 10px;
-            color: var(--primary-color);
-            font-size: 1.3rem;
-        }
-
-        .card-content p {
-            font-size: 0.95rem;
-            margin-bottom: 15px;
-            color: #555;
-        }
+        .card:hover { transform: translateY(-8px); }
+        .card img { width: 100%; height: 220px; object-fit: cover; }
+        .card-content { padding: 20px; }
+        .card-content h3 { margin-bottom: 10px; color: var(--primary-color); font-size: 1.3rem; }
+        .card-content p { font-size: 0.95rem; margin-bottom: 15px; color: #555; }
 
         .tour-details {
             border-top: 1px solid #eee;
@@ -166,40 +111,14 @@
             font-size: 0.9rem;
         }
 
-        /* Booking & Contact Form */
-        .contact-section {
-            padding: 50px 5%;
-            max-width: 800px;
-            margin: 0 auto;
+        .contact-section { padding: 50px 5%; max-width: 800px; margin: 0 auto; }
+        .form-group { margin-bottom: 20px; }
+        .form-group label { display: block; margin-bottom: 8px; font-weight: bold; color: var(--primary-color); }
+        .form-group input, .form-group select, .form-group textarea {
+            width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 5px; font-size: 1rem;
         }
+        .form-group textarea { resize: vertical; height: 120px; }
 
-        .form-group {
-            margin-bottom: 20px;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: bold;
-            color: var(--primary-color);
-        }
-
-        .form-group input, 
-        .form-group select, 
-        .form-group textarea {
-            width: 100%;
-            padding: 12px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            font-size: 1rem;
-        }
-
-        .form-group textarea {
-            resize: vertical;
-            height: 120px;
-        }
-
-        /* Footer */
         footer {
             background-color: var(--primary-color);
             color: white;
@@ -208,15 +127,31 @@
             margin-top: 40px;
         }
 
-        /* Responsive Design */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #25d366;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 50px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            font-weight: bold;
+            box-shadow: 2px 2px 10px rgba(0,0,0,0.2);
+            z-index: 1000;
+            transition: transform 0.3s ease;
+        }
+
+        .whatsapp-float:hover { transform: scale(1.05); background-color: #128c7e; }
+
         @media (max-width: 768px) {
-            nav {
-                flex-direction: column;
-                gap: 15px;
-            }
-            header h2 {
-                font-size: 2.2rem;
-            }
+            nav { flex-direction: column; gap: 15px; }
+            header h2 { font-size: 2.2rem; }
+            .whatsapp-float span { display: none; }
+            .whatsapp-float { padding: 15px; border-radius: 50%; }
         }
     </style>
 </head>
@@ -233,18 +168,17 @@
 
     <header id="home">
         <h2>Experience the Heart of Bengal</h2>
-        <p>From the world's longest sea beach to the majestic Royal Bengal Tiger, book trusted local guides to explore the true beauty and deep history of Bangladesh safely.</p>
+        <p>From the world's longest sea beach to the majestic Royal Bengal Tiger, book trusted local guides to explore the true beauty of Bangladesh safely.</p>
         <a href="#book" class="btn">Start Your Journey</a>
     </header>
 
     <h2 class="section-title" id="tours">Top Destinations in Bangladesh</h2>
     <div class="tours-container">
-        
         <div class="card">
             <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60" alt="Cox's Bazar Beach">
             <div class="card-content">
                 <h3>Cox's Bazar Getaway</h3>
-                <p>Relax on the world's longest unbroken sandy sea beach. Our guide will take you to the best viewpoints, surfing spots, and fresh seafood markets.</p>
+                <p>Relax on the world's longest unbroken sandy sea beach with our expert local guides.</p>
                 <div class="tour-details">
                     <span><strong>Duration:</strong> 3 Days</span>
                     <span><strong>Price:</strong> $120</span>
@@ -256,7 +190,7 @@
             <img src="https://images.unsplash.com/photo-1584464491033-06628f3a6b7b?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60" alt="Historical Architecture">
             <div class="card-content">
                 <h3>Old Dhaka & Mughal History</h3>
-                <p>Dive into history with a walking tour of Old Dhaka. Visit the 17th-century Lalbagh Fort, the Pink Palace (Ahsan Manzil), and navigate the vibrant alleys of Shankhari Bazaar.</p>
+                <p>Visit 17th-century forts and vibrant alleys with a walking tour of the capital.</p>
                 <div class="tour-details">
                     <span><strong>Duration:</strong> Full Day</span>
                     <span><strong>Price:</strong> $40</span>
@@ -268,7 +202,7 @@
             <img src="https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60" alt="Mangrove Forest">
             <div class="card-content">
                 <h3>Sundarbans Mangrove Safari</h3>
-                <p>Cruise through the largest mangrove forest on Earth. Spot spotted deer, crocodiles, and if you're lucky, the elusive Royal Bengal Tiger with our expert wildlife guides.</p>
+                <p>Spot the Royal Bengal Tiger in the world's largest mangrove forest.</p>
                 <div class="tour-details">
                     <span><strong>Duration:</strong> 2 Days</span>
                     <span><strong>Price:</strong> $150</span>
@@ -279,116 +213,73 @@
         <div class="card">
             <img src="https://images.unsplash.com/photo-1596632949742-0f04ea2646ea?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60" alt="Tea Gardens">
             <div class="card-content">
-                <h3>Sylhet Tea Gardens & Waterfalls</h3>
-                <p>Escape to the rolling green hills of Sylhet and Sreemangal. Trek through lush tea estates, visit indigenous villages, and bathe in crystal-clear waterfalls.</p>
+                <h3>Sylhet Tea Gardens</h3>
+                <p>Explore lush green tea estates and crystal-clear waterfalls in Sreemangal.</p>
                 <div class="tour-details">
                     <span><strong>Duration:</strong> 2 Days</span>
                     <span><strong>Price:</strong> $110</span>
                 </div>
             </div>
         </div>
-
     </div>
 
     <div class="contact-section" id="book">
         <h2 class="section-title">Book Your BD Adventure</h2>
-        <p style="text-align: center; margin-bottom: 30px;">Let us know when you are visiting Bangladesh and what you want to see. Our local experts will reply within 24 hours.</p>
+        <p style="text-align: center; margin-bottom: 30px;">Let us know when you are visiting. Our local experts will reply within 24 hours.</p>
         
-        <form id="bookingForm" action="https://formspree.io/f/xdaylknd" method="POST">
+        <form action="https://formspree.io/f/xdaylknd" method="POST">
             <div class="form-group">
                 <label for="name">Full Name</label>
-                <input type="text" id="name" required placeholder="John Doe">
+                <input type="text" name="visitor_name" id="name" required placeholder="John Doe">
             </div>
             
             <div class="form-group">
                 <label for="email">Email Address</label>
-                <input type="email" id="email" required placeholder="johndoe@example.com">
+                <input type="email" name="_replyto" id="email" required placeholder="johndoe@example.com">
             </div>
 
             <div class="form-group">
                 <label for="country">Nationality</label>
-                <input type="text" id="country" placeholder="e.g., USA, UK, Japan">
+                <input type="text" name="nationality" id="country" placeholder="e.g., USA, UK, Japan">
             </div>
 
             <div class="form-group">
-                <label for="service">Select Destination / Tour</label>
-                <select id="service" required>
+                <label for="service">Select Destination</label>
+                <select name="destination" id="service" required>
                     <option value="" disabled selected>Select an option...</option>
                     <option value="coxsbazar">Cox's Bazar Beach Getaway</option>
                     <option value="dhaka">Old Dhaka & Mughal History</option>
                     <option value="sundarbans">Sundarbans Mangrove Safari</option>
                     <option value="sylhet">Sylhet Tea Gardens</option>
                     <option value="custom">Custom Bangladesh Itinerary</option>
-                    <option value="question">General Inquiry</option>
                 </select>
             </div>
 
             <div class="form-group">
-                <label for="message">Your Travel Details</label>
-                <textarea id="message" required placeholder="Tell us your arrival dates, group size, and any specific places in Bangladesh you want to visit..."></textarea>
+                <label for="message">Travel Details</label>
+                <textarea name="message" id="message" required placeholder="Tell us your dates and group size..."></textarea>
             </div>
 
             <button type="submit" class="btn" style="width: 100%;">Send Request</button>
         </form>
 		
-		<div style="text-align: center; margin-top: 30px; padding: 20px; border-top: 1px solid #ddd;">
-    <p>Or reach us directly via:</p>
-    <p><strong>Email:</strong> <a href="mailto:your-email@gmail.com" style="color: var(--secondary-color);">anasayedbff@gmail.com</a></p>
-    <p><strong>WhatsApp:</strong> <a href="https://wa.me/8801XXX XXXXXX" style="color: var(--secondary-color);">+880 1608422454</a></p>
-</div>
-
+        <div style="text-align: center; margin-top: 30px; padding: 20px; border-top: 1px solid #ddd;">
+            <p>Or reach us directly via:</p>
+            <p><strong>Email:</strong> <a href="mailto:anasayedbff@gmail.com" style="color: var(--secondary-color);">anasayedbff@gmail.com</a></p>
+            <p><strong>WhatsApp:</strong> <a href="https://wa.me/8801608422454" style="color: var(--secondary-color);">+880 1608422454</a></p>
+        </div>
     </div>
 
     <footer>
         <p>&copy; 2026 Discover BD Tours. All rights reserved.</p>
     </footer>
 
-    <script>
-        document.getElementById('bookingForm').addEventListener('submit', function(e) {
-            e.preventDefault(); 
-            
-            alert('Dhonnobad! (Thank you!) Your booking request has been sent. Our local guides in Bangladesh will contact you shortly.');
-            
-            this.reset();
-        });
-    </script>
-<a href="https://wa.me/8801608422454?text=Hi!%20I%27m%20interested%20in%20booking%20a%20tour%20in%20Bangladesh." 
-   class="whatsapp-float" 
-   target="_blank">
-    <svg viewBox="0 0 448 512" width="30" height="30" fill="white">
-        <path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-5.5-2.8-23.4-8.6-44.5-27.5-16.4-14.6-27.5-32.6-30.7-37.9-3.2-5.5-.3-8.5 2.5-11.2 2.5-2.5 5.5-6.5 8.3-9.7 2.8-3.3 3.7-5.6 5.5-9.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 13.2 5.7 23.5 9.2 31.6 11.8 13.3 4.2 25.4 3.6 35 2.2 10.7-1.5 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/>
-    </svg>
-    <span>Chat with Guide</span>
-</a>
+    <a href="https://wa.me/8801608422454?text=Hi!%20I%27m%20interested%20in%20booking%20a%20tour%20in%20Bangladesh." class="whatsapp-float" target="_blank">
+        <svg viewBox="0 0 448 512" width="30" height="30" fill="white">
+            <path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-5.5-2.8-23.4-8.6-44.5-27.5-16.4-14.6-27.5-32.6-30.7-37.9-3.2-5.5-.3-8.5 2.5-11.2 2.5-2.5 5.5-6.5 8.3-9.7 2.8-3.3 3.7-5.6 5.5-9.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 13.2 5.7 23.5 9.2 31.6 11.8 13.3 4.2 25.4 3.6 35 2.2 10.7-1.5 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/>
+        </svg>
+        <span>Chat with Guide</span>
+    </a>
 
-<style>
-    .whatsapp-float {
-        position: fixed;
-        bottom: 20px;
-        right: 20px;
-        background-color: #25d366;
-        color: white;
-        padding: 10px 20px;
-        border-radius: 50px;
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        text-decoration: none;
-        font-weight: bold;
-        box-shadow: 2px 2px 10px rgba(0,0,0,0.2);
-        z-index: 1000;
-        transition: transform 0.3s ease;
-    }
-
-    .whatsapp-float:hover {
-        transform: scale(1.05);
-        background-color: #128c7e;
-    }
-
-    @media (max-width: 768px) {
-        .whatsapp-float span { display: none; } /* On mobile, show only the icon */
-        .whatsapp-float { padding: 15px; border-radius: 50%; }
-    }
-</style>
 </body>
 </html>
