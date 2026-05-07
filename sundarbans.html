@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sundarbans Safari | Discover BD Tours</title>
+    <style>
+        :root {
+            --primary-color: #006a4e;
+            --secondary-color: #f42a41;
+            --light-bg: #f4f8f6;
+            --text-color: #333333;
+            --accent-gold: #f59e0b;
+            --white: #ffffff;
+            --light-gray: #eaeaea;
+            --gray-900: #555555;
+            --shadow-color: rgba(0, 0, 0, 0.1);
+            --shadow-dark: rgba(0, 0, 0, 0.2);
+            --font-family-sans: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            --font-size-base: 1rem;
+            --line-height-base: 1.6;
+            --spacing-xxs: 0.25rem;
+            --spacing-xs: 0.5rem;
+            --spacing-sm: 0.75rem;
+            --spacing-md: 1rem;
+            --spacing-lg: 1.5rem;
+            --spacing-xl: 2rem;
+            --spacing-xxl: 3rem;
+            --anim-duration: 0.3s;
+            --anim-ease: ease-out;
+        }
+        *, *::before, *::after {
+            margin: 0; padding: 0; box-sizing: border-box;
+            -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;
+        }
+        html { font-size: 100%; scroll-behavior: smooth; }
+        body {
+            font-family: var(--font-family-sans); font-size: var(--font-size-base);
+            line-height: var(--line-height-base); color: var(--text-color);
+            background-color: var(--light-bg); overflow-x: hidden;
+        }
+        img, svg { display: block; max-width: 100%; height: auto; }
+        a { color: inherit; text-decoration: none; transition: color var(--anim-duration) var(--anim-ease); }
+        a:hover { color: var(--secondary-color); }
+        ul { list-style: none; }
+        button { cursor: pointer; border: none; }
+        .container { width: 100%; max-width: 1100px; margin-left: auto; margin-right: auto; padding-left: var(--spacing-md); padding-right: var(--spacing-md); }
+        .text-center { text-align: center; }
+        .flex { display: flex; }
+        .grid { display: grid; }
+        .hidden { display: none !important; }
+        .mt-sm { margin-top: var(--spacing-sm); } .mb-sm { margin-bottom: var(--spacing-sm); }
+        .mt-md { margin-top: var(--spacing-md); } .mb-md { margin-bottom: var(--spacing-md); }
+        .mt-lg { margin-top: var(--spacing-lg); } .mb-lg { margin-bottom: var(--spacing-lg); }
+        .pt-sm { padding-top: var(--spacing-sm); } .pb-sm { padding-bottom: var(--spacing-sm); }
+        .pt-md { padding-top: var(--spacing-md); } .pb-md { padding-bottom: var(--spacing-md); }
+
+        /* Navbar */
+        nav {
+            background-color: var(--primary-color); color: var(--white); padding: var(--spacing-md) 5%;
+            position: sticky; top: 0; z-index: 100; display: flex; justify-content: space-between;
+            align-items: center; box-shadow: 0 2px 8px var(--shadow-color);
+        }
+        nav h1 { font-size: 1.5rem; font-weight: 600; margin: 0; }
+        nav span { color: var(--secondary-color); }
+        nav ul { display: flex; gap: var(--spacing-lg); align-items: center; }
+        nav a { color: var(--white); font-weight: 500; font-size: 0.95rem; transition: color var(--anim-duration) var(--anim-ease); }
+        nav a:hover, nav a.active { color: var(--secondary-color); }
+        @media (max-width: 768px) {
+            nav { flex-direction: column; gap: var(--spacing-sm); padding: var(--spacing-sm) 3%; }
+            nav ul { gap: var(--spacing-sm); flex-wrap: wrap; justify-content: center; }
+        }
+
+        /* Hero */
+        .hero {
+            position: relative; display: flex; flex-direction: column; justify-content: center;
+            align-items: center; text-align: center; color: var(--white); min-height: 80vh;
+            background-position: center; background-size: cover; background-repeat: no-repeat; padding: 0 var(--spacing-md);
+        }
+        .hero::before { content: ''; position: absolute; inset: 0; background: linear-gradient(rgba(0, 106, 78, 0.75), rgba(0, 0, 0, 0.45)); z-index: 1; }
+        .hero-content { position: relative; z-index: 2; max-width: 800px; width: 100%; }
+        .hero-title { font-size: clamp(2rem, 6vw, 3.5rem); margin-bottom: var(--spacing-md); line-height: 1.2; text-shadow: 2px 2px 6px rgba(0,0,0,0.4); }
+        .hero-subtitle { font-size: clamp(1rem, 2.5vw, 1.25rem); margin-bottom: var(--spacing-lg); opacity: 0.95; text-shadow: 1px 1px 4px rgba(0,0,0,0.3); }
+        .hero-cta { display: flex; gap: var(--spacing-sm); flex-wrap: wrap; justify-content: center; }
+
+        /* Buttons */
+        .btn {
+            display: inline-block; background-color: var(--secondary-color); color: var(--white);
+            padding: 0.75rem 2rem; border-radius: 6px; font-size: 1rem; font-weight: 600; text-align: center;
+            transition: background var(--anim-duration) var(--anim-ease), transform var(--anim-duration) var(--anim-ease);
+        }
+        .btn:hover { background-color: #d01c31; transform: translateY(-2px); }
+        .btn-outline { background: transparent; border: 2px solid var(--white); color: var(--white); }
+        .btn-outline:hover { background: var(--white); color: var(--primary-color); border-color: var(--white); transform: translateY(-2px); }
+
+        /* Sections */
+        section { padding: var(--spacing-xxl) var(--spacing-md); }
+        .section-title { font-size: clamp(1.8rem, 4vw, 2.2rem); color: var(--primary-color); text-align: center; margin-bottom: var(--spacing-sm); }
+        .section-subtitle { font-size: 1rem; color: #666; text-align: center; margin-bottom: var(--spacing-lg); }
+
+        /* Cards */
+        .card {
+            background: var(--white); border-radius: 10px; box-shadow: 0 4px 12px var(--shadow-color);
+            overflow: hidden; transition: transform var(--anim-duration) var(--anim-ease), box-shadow var(--anim-duration) var(--anim-ease);
+            display: flex; flex-direction: column;
+        }
+        .card img { width: 100%; height: 220px; object-fit: cover; }
+        .card-content { padding: var(--spacing-md); flex-grow: 1; }
+        .card-content h3 { color: var(--primary-color); margin-bottom: var(--spacing-xs); font-size: 1.3rem; }
+        .card-content p { color: #555; font-size: 0.94rem; line-height: 1.5; }
+        .card:hover { transform: translateY(-6px); box-shadow: 0 8px 20px var(--shadow-dark); }
+        .cards-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: var(--spacing-lg); margin-top: var(--spacing-lg); }
+
+        /* Tour Facts Strip */
+        .facts-strip {
+            background: linear-gradient(135deg, var(--primary-color), #005a42); color: var(--white);
+            padding: var(--spacing-md) 5%; display: flex; justify-content: center; gap: var(--spacing-lg); flex-wrap: wrap;
+        }
+        .fact-item { text-align: center; min-width: 100px; }
+        .fact-item .fact-icon { font-size: 1.8rem; margin-bottom: var(--spacing-xxs); display: block; }
+        .fact-item .fact-value { font-size: 1.3rem; font-weight: 600; display: block; }
+        .fact-item .fact-label { font-size: 0.85rem; text-transform: uppercase; opacity: 0.85; }
+
+        /* Image Gallery */
+        .gallery-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--spacing-sm); max-width: 1100px; margin: 0 auto;
+        }
+        .gallery-grid img { border-radius: 8px; transition: transform var(--anim-duration) var(--anim-ease); cursor: pointer; }
+        .gallery-grid img:hover { transform: scale(1.03); }
+
+        /* Timeline */
+        .timeline { max-width: 800px; margin: 0 auto; }
+        .timeline-item { display: flex; gap: var(--spacing-md); position: relative; margin-bottom: var(--spacing-lg); }
+        .timeline-item:not(:last-child)::after {
+            content: ''; position: absolute; left: 28px; top: 60px; bottom: -35px;
+            width: 2px; background: var(--primary-color); opacity: 0.3;
+        }
+        .timeline-time {
+            background: var(--secondary-color); color: var(--white); min-width: 70px; height: 70px;
+            border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            font-weight: 600; font-size: 0.9rem; text-align: center; line-height: 1.2; box-shadow: 0 2px 6px var(--shadow-color);
+        }
+        .timeline-content {
+            background: var(--white); padding: var(--spacing-md); border-radius: 10px;
+            box-shadow: 0 4px 12px var(--shadow-color); flex: 1; transition: transform var(--anim-duration) var(--anim-ease);
+        }
+        .timeline-content:hover { transform: translateX(5px); }
+        .timeline-content h3 { color: var(--primary-color); margin-bottom: var(--spacing-xxs); font-size: 1.2rem; }
+        .timeline-content p, .timeline-content ul { font-size: 0.94rem; color: #555; line-height: 1.5; }
+        .timeline-content ul { padding-left: 1.2rem; list-style: disc; }
+
+        /* Included / Not Included */
+        .included-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--spacing-lg); max-width: 1100px; margin: 0 auto;
+        }
+        .included-card {
+            background: var(--light-bg); border-radius: 10px; padding: var(--spacing-lg);
+            box-shadow: 0 4px 12px var(--shadow-color); transition: transform var(--anim-duration) var(--anim-ease);
+        }
+        .included-card:hover { transform: translateY(-3px); }
+        .included-card h3 { text-align: center; color: var(--primary-color); margin-bottom: var(--spacing-md); font-size: 1.3rem; }
+        .included-card ul { list-style: none; padding: 0; margin: 0; }
+        .included-card li {
+            padding: var(--spacing-xs) 0; border-bottom: 1px solid #e0e0e0; display: flex;
+            align-items: center; gap: var(--spacing-xxs); font-size: 0.94rem; color: #555;
+        }
+        .included-card li:last-child { border-bottom: none; }
+        .check { color: #22c55e; font-weight: bold; } .cross { color: var(--secondary-color); font-weight: bold; }
+
+        /* Guide Profile */
+        .guide-profile {
+            max-width: 800px; margin: 0 auto; background: var(--white); padding: var(--spacing-lg);
+            border-radius: 12px; display: flex; gap: var(--spacing-lg); align-items: center;
+            box-shadow: 0 4px 15px var(--shadow-color); transition: transform var(--anim-duration) var(--anim-ease);
+        }
+        .guide-profile:hover { transform: translateY(-3px); }
+        .guide-avatar {
+            width: 150px; height: 150px; border-radius: 50%; background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            display: flex; align-items: center; justify-content: center; font-size: 3.5rem; color: var(--white); flex-shrink: 0;
+        }
+        .guide-info h3 { color: var(--primary-color); font-size: 1.5rem; margin-bottom: var(--spacing-xxs); }
+        .guide-info .title { color: var(--secondary-color); font-weight: 500; margin-bottom: var(--spacing-xs); font-size: 0.95rem; }
+        .guide-info p { color: #555; font-size: 0.94rem; line-height: 1.5; }
+        .guide-tags { margin-top: var(--spacing-sm); display: flex; flex-wrap: wrap; gap: var(--spacing-xxs); }
+        .guide-tags span { background: #fef3c7; color: #92400e; padding: var(--spacing-xxs) var(--spacing-sm); border-radius: 20px; font-size: 0.85rem; font-weight: 600; }
+        @media (max-width: 768px) { .guide-profile { flex-direction: column; text-align: center; } .guide-tags { justify-content: center; } }
+
+        /* Features */
+        .feature-card {
+            display: flex; align-items: flex-start; gap: 1.2rem; padding: 2rem; border-radius: 16px;
+            background: white; box-shadow: 0 4px 15px rgba(0,0,0,0.08); transition: transform 0.3s ease;
+        }
+        .feature-card:hover { transform: translateY(-5px); }
+        /* .feature-icon {
+            width: 70px; height: 70px; min-width: 70px; display: flex; align-items: center; justify-content: center;
+            border-radius: 50%; background: rgba(0, 106, 78, 0.08); color: var(--primary-color); flex-shrink: 0;
+        }
+        .feature-icon svg { width: 32px; height: 32px; } */
+        .feature-icon { width: 70px; height: 70px; min-width: 70px; display: flex; align-items: center; justify-content: center; border-radius: 50%; background: rgba(0, 106, 78, 0.08); color: var(--primary-color); flex-shrink: 0; font-size: 2rem; }
+        .feature-icon svg { width: 32px; height: 32px; }
+        .feature-content h3 { margin-bottom: 0.5rem; color: var(--primary-color); font-size: 1.2rem; }
+        .feature-content p { color: #555; line-height: 1.6; }
+        .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: var(--spacing-lg); max-width: 1100px; margin: 0 auto; }
+
+        /* Testimonials */
+        .testimonials-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: var(--spacing-lg); max-width: 1100px; margin: 0 auto; }
+        .testimonial-card {
+            background: var(--light-bg); padding: var(--spacing-lg); border-radius: 10px; box-shadow: 0 4px 12px var(--shadow-color);
+            position: relative; transition: transform var(--anim-duration) var(--anim-ease);
+        }
+        .testimonial-card:hover { transform: translateY(-5px); }
+        .testimonial-card::before { content: "\201C"; font-size: 4rem; color: var(--primary-color); opacity: 0.2; position: absolute; top: 10px; left: 20px; line-height: 1; }
+        .testimonial-card p { font-style: italic; color: #555; margin-bottom: var(--spacing-sm); line-height: 1.6; font-size: 0.94rem; margin-top: var(--spacing-sm); }
+        .testimonial-author { display: flex; align-items: center; gap: var(--spacing-xs); }
+        .testimonial-author .avatar { width: 45px; height: 45px; border-radius: 50%; background: var(--primary-color); color: var(--white); display: flex; align-items: center; justify-content: center; font-weight: 600; font-size: 1rem; }
+        .testimonial-author .name { font-weight: 600; color: var(--primary-color); font-size: 0.95rem; }
+        .testimonial-author .country { font-size: 0.85rem; color: #777; }
+        .stars { color: #f59e0b; margin-bottom: var(--spacing-xxs); }
+
+        /* FAQ */
+        .faq-list { max-width: 800px; margin: 0 auto; }
+        .faq-item {
+            background: var(--white); margin-bottom: var(--spacing-xs); border-radius: 8px; box-shadow: 0 2px 6px var(--shadow-color);
+            overflow: hidden; transition: box-shadow var(--anim-duration) var(--anim-ease);
+        }
+        .faq-item:hover { box-shadow: 0 4px 12px var(--shadow-dark); }
+        .faq-question {
+            padding: var(--spacing-md); cursor: pointer; display: flex; justify-content: space-between;
+            align-items: center; font-weight: 600; color: var(--primary-color); font-size: 1rem; transition: background var(--anim-duration) var(--anim-ease);
+        }
+        .faq-question:hover { background: #f0f9f4; }
+        .faq-toggle { font-size: 1.5rem; transition: transform var(--anim-duration) var(--anim-ease); color: var(--secondary-color); }
+        .faq-answer {
+            max-height: 0; overflow: hidden; transition: max-height var(--anim-duration) var(--anim-ease), padding var(--anim-duration) var(--anim-ease);
+            padding: 0 var(--spacing-md);
+        }
+        .faq-answer p { color: #555; padding: var(--spacing-sm) 0; line-height: 1.6; font-size: 0.94rem; }
+        .faq-item.active .faq-answer { max-height: 400px; padding-top: var(--spacing-sm); }
+        .faq-item.active .faq-toggle { transform: rotate(45deg); }
+
+        /* Forms */
+        input, select, textarea {
+            width: 100%; padding: var(--spacing-sm) var(--spacing-md); border: 1px solid #ccc; border-radius: 6px;
+            font-family: inherit; font-size: 0.95rem; transition: border-color var(--anim-duration) var(--anim-ease), box-shadow var(--anim-duration) var(--anim-ease); background: #fff;
+        }
+        input:focus, select:focus, textarea:focus { outline: none; border-color: var(--primary-color); box-shadow: 0 0 0 3px rgba(0,106,78,0.1); }
+        label { display: block; margin-bottom: var(--spacing-xxs); font-weight: 600; color: var(--primary-color); font-size: 0.95rem; }
+        .form-group { margin-bottom: var(--spacing-md); }
+        .booking-form {
+            background: var(--white); padding: var(--spacing-lg); border-radius: 12px; box-shadow: 0 4px 15px var(--shadow-color);
+            max-width: 700px; margin: 0 auto;
+        }
+        button[type="submit"], .booking-form .btn {
+            width: 100%; background-color: var(--secondary-color); color: var(--white); padding: var(--spacing-sm) var(--spacing-lg);
+            font-size: 1rem; font-weight: 600; border-radius: 6px; transition: background var(--anim-duration) var(--anim-ease), transform var(--anim-duration) var(--anim-ease);
+        }
+        button[type="submit"]:hover, .booking-form .btn:hover { background-color: #d01c31; transform: translateY(-2px); }
+
+        /* WhatsApp Float */
+        .whatsapp-float {
+            position: fixed; bottom: 20px; right: 20px; background-color: #25d366; color: var(--white);
+            padding: var(--spacing-sm) var(--spacing-lg); border-radius: 50px; display: flex; align-items: center;
+            gap: var(--spacing-xxs); text-decoration: none; font-weight: 600; box-shadow: 2px 2px 12px var(--shadow-dark);
+            z-index: 1000; transition: transform var(--anim-duration) var(--anim-ease), background-color var(--anim-duration) var(--anim-ease);
+        }
+        .whatsapp-float:hover { background-color: #128c7e; transform: scale(1.05); }
+        @media (max-width: 480px) { .whatsapp-float span { display: none; } .whatsapp-float { padding: var(--spacing-sm); border-radius: 50%; } }
+
+        /* Footer */
+        footer { background-color: var(--primary-color); color: var(--white); text-align: center; padding: var(--spacing-xxl) var(--spacing-md); }
+        footer a { color: var(--accent-gold); text-decoration: none; }
+        footer a:hover { text-decoration: underline; }
+        .footer-links { margin-top: var(--spacing-sm); display: flex; justify-content: center; flex-wrap: wrap; gap: var(--spacing-md); }
+        .footer-bottom { margin-top: var(--spacing-lg); padding-top: var(--spacing-md); border-top: 1px solid rgba(255,255,255,0.2); font-size: 0.9rem; opacity: 0.8; }
+
+        /* Animations */
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        @keyframes slideUp { from { transform: translateY(20px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+        .fade-in { animation: fadeIn var(--anim-duration) var(--anim-ease) forwards; }
+        .slide-up { animation: slideUp var(--anim-duration) var(--anim-ease) forwards; }
+    </style>
+</head>
+<body>
+    <nav>
+        <h1>Discover<span>BD</span> Tours</h1>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="index.html#tours">Destinations</a></li>
+            <li><a href="index.html#guide">Guide</a></li>
+            <li><a href="index.html#faq">FAQ</a></li>
+            <li><a href="index.html#booking" class="active">Book Now</a></li>
+        </ul>
+    </nav>
+
+    <header class="hero" style="background-image: url('https://image.qwenlm.ai/public_source/515701df-c44a-45ec-81ac-735177aa4cfa/1c048a292-b0bb-4838-853e-cd1865a04f46.png');">
+        <div class="hero-content">
+            <h1 class="hero-title">Journey Into The World's Largest Mangrove Forest</h1>
+            <p class="hero-subtitle">Navigate mysterious river channels, spot the elusive Royal Bengal Tiger, and witness nature's raw power in the Sundarbans. A UNESCO World Heritage Site where adventure meets the wild heart of Bangladesh.</p>
+            <div class="hero-cta">
+                <a href="#booking" class="btn">Book This Safari</a>
+                <a href="https://wa.me/8801608422454?text=Hi!%20I%27m%20interested%20in%20the%20Sundarbans%20safari%20tour." class="btn btn-outline" target="_blank">Chat on WhatsApp</a>
+            </div>
+        </div>
+    </header>
+
+    <div class="facts-strip">
+        <div class="fact-item"><span class="fact-icon">🕒</span><span class="fact-value">2 Days</span><span class="fact-label">Duration</span></div>
+        <div class="fact-item"><span class="fact-icon">🚢</span><span class="fact-value">Boat Safari</span><span class="fact-label">Travel Style</span></div>
+        <div class="fact-item"><span class="fact-icon">💰</span><span class="fact-value">$150</span><span class="fact-label">Per Person</span></div>
+        <div class="fact-item"><span class="fact-icon">🌳</span><span class="fact-value">High</span><span class="fact-label">Wildlife</span></div>
+        <div class="fact-item"><span class="fact-icon">👥</span><span class="fact-value">2 – 8</span><span class="fact-label">Group Size</span></div>
+    </div>
+
+    <section>
+        <div class="container">
+            <h2 class="section-title">About The Sundarbans</h2>
+            <p class="section-subtitle">The world's largest single block of tidal halophytic mangrove forest</p>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🌴</div>
+                    <div class="feature-content"><h3>Mangrove Forests</h3><p>Spanning 10,000 sq km across Bangladesh and India, the Sundarbans is a vast network of mangrove forests, tidal waterways, and small islands.</p></div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🐅</div>
+                    <div class="feature-content"><h3>Royal Bengal Tiger</h3><p>Home to approximately 400 Royal Bengal Tigers, this is one of the few places where tigers live in mangrove ecosystems.</p></div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🚣</div>
+                    <div class="feature-content"><h3>River Journeys</h3><p>Explore narrow creeks and wide rivers on traditional boats. The silence of the waterways creates pure magic.</p></div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🌳</div>
+                    <div class="feature-content"><h3>Wildlife</h3><p>Beyond tigers, discover spotted deer, crocodiles, wild boars, monkeys, and over 260 bird species in this biodiversity hotspot.</p></div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🎣</div>
+                    <div class="feature-content"><h3>Fishing Communities</h3><p>Meet the resilient Munda and Bede communities who've lived in harmony with the forest for generations.</p></div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🌿</div>
+                    <div class="feature-content"><h3>Ecosystem</h3><p>A UNESCO World Heritage Site where land meets sea. The Sundarbans protects Bangladesh's coast from cyclones and supports millions of livelihoods.</p></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section style="background-color: var(--light-gray);">
+        <div class="container">
+            <h2 class="section-title">Wildlife Highlights</h2>
+            <p class="section-subtitle">Encounter the magnificent creatures of the mangrove forest</p>
+            <div class="cards-grid">
+                <div class="card">
+                    <img src="https://image.qwenlm.ai/public_source/515701df-c44a-45ec-81ac-735177aa4cfa/11d1d1595-dddc-4933-8d6e-310d402acfb8.png" alt="Royal Bengal Tiger">
+                    <div class="card-content">
+                        <h3>Royal Bengal Tiger</h3>
+                        <p>The apex predator of the Sundarbans. These majestic cats have adapted to swimming in saline water — a unique evolutionary trait found nowhere else. IUCN Status: Endangered.</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="https://image.qwenlm.ai/public_source/515701df-c44a-45ec-81ac-735177aa4cfa/167ae6264-a0a8-4eca-9e48-570e92cdfa98.png" alt="Crocodile">
+                    <div class="card-content">
+                        <h3>Crocodiles</h3>
+                        <p>Both saltwater and freshwater crocodiles inhabit these waters. The massive saltwater crocodile can grow up to 6 meters long. Est. population: 200+.</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="https://image.qwenlm.ai/public_source/515701df-c44a-45ec-81ac-735177aa4cfa/11ceebfb2-b13d-455b-8518-14b4b5e7f6bc.png" alt="Exotic Birds">
+                    <div class="card-content">
+                        <h3>Exotic Birds</h3>
+                        <p>Over 260 bird species including kingfishers, herons, egrets, and the majestic white-bellied sea eagle. A paradise for birdwatchers and photographers. Best time: Nov – Feb.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="container">
+            <h2 class="section-title">Sundarbans Gallery</h2>
+            <p class="section-subtitle">Glimpses of the wild mangrove wilderness</p>
+            <div class="gallery-grid">
+                <img src="https://image.qwenlm.ai/public_source/515701df-c44a-45ec-81ac-735177aa4cfa/1c048a292-b0bb-4838-853e-cd1865a04f46.png" alt="Sundarbans River">
+                <img src="https://image.qwenlm.ai/public_source/515701df-c44a-45ec-81ac-735177aa4cfa/11d1d1595-dddc-4933-8d6e-310d402acfb8.png" alt="Sundarbans Tiger">
+                <img src="https://image.qwenlm.ai/public_source/515701df-c44a-45ec-81ac-735177aa4cfa/167ae6264-a0a8-4eca-9e48-570e92cdfa98.png" alt="Sundarbans Crocodile">
+                <img src="https://image.qwenlm.ai/public_source/515701df-c44a-45ec-81ac-735177aa4cfa/11ceebfb2-b13d-455b-8518-14b4b5e7f6bc.png" alt="Sundarbans Birds">
+            </div>
+        </div>
+    </section>
+
+    <section style="background-color: var(--light-gray);">
+        <div class="container">
+            <h2 class="section-title">2-Day Safari Itinerary</h2>
+            <p class="section-subtitle">Navigate the wild waterways of the mangrove forest</p>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-time">Day 1<br>Boat Safari</div>
+                    <div class="timeline-content">
+                        <h3>Into The Mangroves</h3>
+                        <p>Depart from Khulna early morning and enter the magnificent world of the Sundarbans by boat.</p>
+                        <ul>
+                            <li>Pickup from Khulna station/hotel</li>
+                            <li>Board traditional wooden boat (engine-powered)</li>
+                            <li>Forest permit processing at entry point</li>
+                            <li>First boat safari through narrow creeks</li>
+                            <li>Wildlife spotting: deer, crocodiles, birds</li>
+                            <li>Sunset viewing from the boat deck</li>
+                            <li>Dinner and overnight stay on boat</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-time">Day 2<br>Deep Forest</div>
+                    <div class="timeline-content">
+                        <h3>Tiger Territory & Departure</h3>
+                        <p>Venture deeper into the forest with guided walks and watchtower visits for the best wildlife viewing opportunities.</p>
+                        <ul>
+                            <li>Early morning tea on boat deck</li>
+                            <li>Guided forest walk with armed guard</li>
+                            <li>Visit to Katka watchtower for tiger spotting</li>
+                            <li>Exploration of open meadows and waterways</li>
+                            <li>Traditional lunch on boat</li>
+                            <li>Final boat ride through mangrove tunnels</li>
+                            <li>Departure to Khulna by evening</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="container">
+            <h2 class="section-title">Safety & Preparation</h2>
+            <p class="section-subtitle">Stay safe while enjoying the wild adventure</p>
+            <div class="cards-grid">
+                <div class="card" style="padding: var(--spacing-md);">
+                    <div class="card-content">
+                        <h3>🗣 Guided Travel</h3>
+                        <ul>
+                            <li>All tours include armed forest guard</li>
+                            <li>Experienced local boat captain</li>
+                            <li>Certified wildlife guide accompanies you</li>
+                            <li>Radio communication with forest office</li>
+                            <li>Emergency evacuation plan in place</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="card" style="padding: var(--spacing-md);">
+                    <div class="card-content">
+                        <h3>🚩 Safety Tips</h3>
+                        <ul>
+                            <li>Never wander alone into the forest</li>
+                            <li>Maintain silence during wildlife spotting</li>
+                            <li>Wear life jackets on boat rides</li>
+                            <li>Follow guide's instructions at all times</li>
+                            <li>Keep safe distance from wildlife</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="card" style="padding: var(--spacing-md);">
+                    <div class="card-content">
+                        <h3>🎒 What to Pack</h3>
+                        <ul>
+                            <li>Light, breathable long-sleeved clothing</li>
+                            <li>Sturdy waterproof hiking sandals</li>
+                            <li>Insect repellent & sunscreen (SPF 50+)</li>
+                            <li>Binoculars & camera with zoom lens</li>
+                            <li>Personal medication & first-aid kit</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section style="background-color: var(--light-gray);">
+        <div class="container">
+            <h2 class="section-title">What's Included</h2>
+            <p class="section-subtitle">Transparent pricing for your safari adventure</p>
+            <div class="included-grid">
+                <div class="included-card">
+                    <h3>✅ Included</h3>
+                    <ul>
+                        <li><span class="check">✓</span> Khulna pick-up & drop-off</li>
+                        <li><span class="check">✓</span> 2-day boat rental with captain</li>
+                        <li><span class="check">✓</span> All meals (Bengali cuisine)</li>
+                        <li><span class="check">✓</span> Forest entry fees & permits</li>
+                        <li><span class="check">✓</span> Armed guard & guide fees</li>
+                        <li><span class="check">✓</span> Overnight stay on boat</li>
+                        <li><span class="check">✓</span> Drinking water & snacks</li>
+                        <li><span class="check">✓</span> Binoculars for wildlife spotting</li>
+                    </ul>
+                </div>
+                <div class="included-card">
+                    <h3>❌ Not Included</h3>
+                    <ul>
+                        <li><span class="cross">✗</span> Transport to/from Khulna</li>
+                        <li><span class="cross">✗</span> Travel insurance</li>
+                        <li><span class="cross">✗</span> Personal expenses</li>
+                        <li><span class="cross">✗</span> Alcoholic beverages</li>
+                        <li><span class="cross">✗</span> Tips for crew & guide</li>
+                        <li><span class="cross">✗</span> Camera equipment rental</li>
+                        <li><span class="cross">✗</span> Visa fees (if applicable)</li>
+                        <li><span class="cross">✗</span> Single supplement for boat</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="guide">
+        <div class="container">
+            <h2 class="section-title">Meet Your Guide</h2>
+            <p class="section-subtitle">A wilderness expert who knows the mangrove maze</p>
+            <div class="guide-profile">
+                <div class="guide-avatar">👤</div>
+                <div class="guide-info">
+                    <h3>Khalid Hasan</h3>
+                    <div class="title">Sundarbans Wilderness Specialist</div>
+                    <p>Khalid has spent 12 years navigating the waterways of the Sundarbans as a certified forest guide. He knows every narrow creek, every watchtower, and the best spots for wildlife sightings. His deep knowledge of the mangrove ecosystem and tiger behavior has made him one of the most sought-after guides in the region.</p>
+                    <div class="guide-tags">
+                        <span>🌴 Sundarbans Expert</span>
+                        <span>📌 12+ Years Experience</span>
+                        <span>🇬🇧 English/Bengali</span>
+                        <span>📷 Wildlife Photography</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section style="background-color: var(--light-gray);">
+        <div class="container">
+            <h2 class="section-title">Traveler Stories</h2>
+            <p class="section-subtitle">What fellow adventurers say about this safari</p>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <p>"The Sundarbans exceeded all expectations! Khalid knew exactly where to find wildlife. We spotted deer, crocodiles, and countless birds. Sleeping on the boat under the stars was magical. A true adventure!"</p>
+                    <div class="testimonial-author">
+                        <div class="avatar">DM</div>
+                        <div><div class="name">David M.</div><div class="country">🇺🇸 United States</div></div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <p>"As a wildlife photographer, this was a dream come true. The boat safari allowed us to get incredibly close to wildlife. Khalid's knowledge of animal behavior helped us get shots we never thought possible."</p>
+                    <div class="testimonial-author">
+                        <div class="avatar">SK</div>
+                        <div><div class="name">Sophie K.</div><div class="country">🇫🇷 France</div></div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="stars">★★★★☆</div>
+                    <p>"The most adventurous part of our Bangladesh trip. The forest is raw, untamed, and beautiful. Khalid made us feel safe at all times while keeping the experience authentic. Highly recommend for nature lovers!"</p>
+                    <div class="testimonial-author">
+                        <div class="avatar">TW</div>
+                        <div><div class="name">Thomas W.</div><div class="country">🇩🇪 United Kingdom</div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="faq">
+        <div class="container">
+            <h2 class="section-title">Frequently Asked Questions</h2>
+            <p class="section-subtitle">Everything you need to know before your safari</p>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <div class="faq-question">Is the Sundarbans safe for tourists?<span class="faq-toggle">+</span></div>
+                    <div class="faq-answer"><p>Yes, with proper guidance. All our tours include an armed forest guard and an experienced local guide. We stick to approved routes, safe watchtowers, and never venture into core tiger territory without protection. Your safety is our top priority.</p></div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">Will we see the Royal Bengal Tiger?<span class="faq-toggle">+</span></div>
+                    <div class="faq-answer"><p>While the Sundarbans hosts around 400 tigers, sightings are rare but possible. Only about 1 in 50 visitors spot one. However, you'll definitely see deer, crocodiles, monkeys, and incredible birdlife. We maximize your chances by visiting known tiger territories at optimal times.</p></div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">What should I pack for the Sundarbans?<span class="faq-toggle">+</span></div>
+                    <div class="faq-answer"><p>Pack light, breathable long-sleeved clothing (green/brown colors), sturdy waterproof sandals, wide-brimmed hat, sunscreen (SPF 50+), insect repellent, binoculars, camera with zoom lens, personal medications, and a light rain jacket. We'll send a detailed packing list after booking!</p></div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">What's the best time to visit?<span class="faq-toggle">+</span></div>
+                    <div class="faq-answer"><p>November to February is ideal, with pleasant temperatures (15-25°C / 59-77°F), low humidity, and the highest chance of wildlife sightings. The forest is accessible, mosquitoes are fewer, and the weather is perfect for boat safaris and forest walks.</p></div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">How does the booking process work?<span class="faq-toggle">+</span></div>
+                    <div class="faq-answer"><p>Fill out the inquiry form below, and we'll reply within 24 hours via email or WhatsApp. Due to limited boat permits, we recommend booking at least 3 weeks in advance. A small advance payment secures your dates, with the balance payable in cash (USD/EUR/BDT) on arrival.</p></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="booking" style="background-color: var(--light-gray);">
+        <div class="container">
+            <h2 class="section-title">Book Your Sundarbans Safari</h2>
+            <p class="section-subtitle">Enter the wild — we'll handle the rest</p>
+            <form class="booking-form" action="#" method="POST">
+                <div class="form-group">
+                    <label for="name">Full Name *</label>
+                    <input type="text" id="name" name="name" placeholder="John Doe" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email Address *</label>
+                    <input type="email" id="email" name="email" placeholder="you@example.com" required>
+                </div>
+                <div class="form-group">
+                    <label for="nationality">Nationality *</label>
+                    <input type="text" id="nationality" name="nationality" placeholder="e.g., United States" required>
+                </div>
+                <div class="form-group">
+                    <label for="date">Travel Date *</label>
+                    <input type="date" id="date" name="date" required>
+                </div>
+                <div class="form-group">
+                    <label for="group">Group Size</label>
+                    <select id="group" name="group">
+                        <option value="1">Solo Traveler (1)</option>
+                        <option value="2">Couple (2)</option>
+                        <option value="3-4" selected>Small Group (3-4)</option>
+                        <option value="5-8">Medium Group (5-8)</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="package">Tour Package</label>
+                    <select id="package" name="package">
+                        <option value="sundarbans">Sundarbans Mangrove Safari (2 Days)</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="message">Special Requests / Message</label>
+                    <textarea id="message" name="message" rows="4" placeholder="Any dietary needs, accessibility requirements, or specific interests?"></textarea>
+                </div>
+                <button type="submit" class="btn">Send Booking Request</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <h3>Discover<span style="color: var(--secondary-color);">BD</span> Tours</h3>
+            <p>Budget-friendly adventures across Bangladesh</p>
+            <div class="footer-links">
+                <a href="index.html">Home</a>
+                <a href="index.html#tours">Destinations</a>
+                <a href="index.html#guide">Guide</a>
+                <a href="index.html#faq">FAQ</a>
+                <a href="index.html#booking">Book Now</a>
+                <a href="mailto:anasayedbff@gmail.com">Contact</a>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2026 Discover BD Tours. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <a href="https://wa.me/8801608422454?text=Hi!%20I%27m%20interested%20in%20the%20Sundarbans%20safari%20tour." class="whatsapp-float" target="_blank">
+        <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.008-.57-.008-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+        <span>Chat on WhatsApp</span>
+    </a>
+
+    <script>
+        document.querySelectorAll('.faq-question').forEach(item => {
+            item.addEventListener('click', () => {
+                const parent = item.parentElement;
+                parent.classList.toggle('active');
+            });
+        });
+    </script>
+</body>
+</html>
+
